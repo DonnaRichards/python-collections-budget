@@ -23,9 +23,10 @@ def test_task2_module5():
     calls = utils.get_calls(ExpenseCategories)
 
     expected_timeit_str = 'timeit:timeit:stmt:pass:setup:\n:number:100000:globals:globals'
-    expected_timeit_str_2 = 'timeit:timeit:stmt:expenses.categorize_for_loop():setup:\n from . import Expense\nexpenses = Expense.Expenses()\nexpenses.read_expenses(\'data/spending_data.csv\')\n:number:100000:globals:globals'
+    expected_timeit_str_2 = 'timeit:timeit:stmt:expenses.categorize_for_loop():setup:\n from budget import Expense\nexpenses = Expense.Expenses()\nexpenses.read_expenses(\'data/spending_data.csv\')\n:number:100000:globals:globals'
 
     for x in calls:
+        print(x)
         if (expected_timeit_str in x.replace(" ", "") or 
             expected_timeit_str_2.replace(" ", "") in x.replace(" ", "")):
             found_timeit_call = True
@@ -39,7 +40,7 @@ def test_task3_module5():
     found_timeit_call = False
     calls = utils.get_calls(ExpenseCategories)
 
-    expected_timeit_str = 'timeit:timeit:stmt:expenses.categorize_for_loop():setup:\n from . import Expense\nexpenses = Expense.Expenses()\nexpenses.read_expenses(\'data/spending_data.csv\')\n:number:100000:globals:globals'
+    expected_timeit_str = 'timeit:timeit:stmt:expenses.categorize_for_loop():setup:\n from budget import Expense\nexpenses = Expense.Expenses()\nexpenses.read_expenses(\'data/spending_data.csv\')\n:number:100000:globals:globals'
 
     for x in calls:
         if expected_timeit_str.replace(" ", "") in x.replace(" ", ""):
@@ -54,7 +55,7 @@ def test_task4_module5():
     found_timeit_call = False
     calls = utils.get_calls(ExpenseCategories)
 
-    expected_timeit_str = 'print:timeit:timeit:stmt:expenses.categorize_for_loop():setup:\n from . import Expense\nexpenses = Expense.Expenses()\nexpenses.read_expenses(\'data/spending_data.csv\')\n:number:100000:globals:globals'
+    expected_timeit_str = 'print:timeit:timeit:stmt:expenses.categorize_for_loop():setup:\n from budget import Expense\nexpenses = Expense.Expenses()\nexpenses.read_expenses(\'data/spending_data.csv\')\n:number:100000:globals:globals'
 
     for x in calls:
         if expected_timeit_str.replace(" ", "") in x.replace(" ", ""):
@@ -69,7 +70,7 @@ def test_task5_module5():
     found_timeit_call = False
     calls = utils.get_calls(ExpenseCategories)
 
-    expected_timeit_str = 'print:timeit:timeit:stmt:expenses.categorize_set_comprehension():setup:\n from . import Expense\nexpenses = Expense.Expenses()\nexpenses.read_expenses(\'data/spending_data.csv\')\n:number:100000:globals:globals'
+    expected_timeit_str = 'print:timeit:timeit:stmt:expenses.categorize_set_comprehension():setup:\n from budget import Expense\nexpenses = Expense.Expenses()\nexpenses.read_expenses(\'data/spending_data.csv\')\n:number:100000:globals:globals'
 
     for x in calls:
         if expected_timeit_str.replace(" ", "") in x.replace(" ", ""):
